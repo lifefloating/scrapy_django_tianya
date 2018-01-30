@@ -11,8 +11,8 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
     * scrapy+django环境搭建
     * 数据库结构设计
     * scrapy代码实现
-    * 反爬
-    * scrapy去重以及增量抓取的实现
+    * 反爬策略
+    * scrapy去重以及增量抓取的实现
     * 数据用于django页面的展示
     * 部署至centos 周期性抓取 (虚拟机暂时熟悉下部署流程)
 ## scrapy+django环境搭建
@@ -40,16 +40,17 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
   <br>
   <br>
   这样大体环境搭建完成!
-  * 数据库设计
   <br>
-  代码在django的models.py那里
-  <br>
-  需要注意的是story表的话story_link 唯一索引 story_mark,story_order联合索引
-  <br>
-  这里的联合索引是后面数据查询的必要条件，因为数据量略大story表100多w数据，查询条件还是加个索引
-  <br>
-  <br>
-  * scrapy 代码实现
+## 数据库设计
+<br>
+   代码在django的models.py那里
+<br>
+   需要注意的是story表的话story_link 唯一索引 story_mark,story_order联合索引
+<br>
+   这里的联合索引是后面数据查询的必要条件，因为数据量略大story表100多w数据，查询条件还是加个索引
+<br>
+<br>
+## scrapy代码实现
   <br>
   终于到了重头戏了，想想还是有点激动？
   <br>
@@ -60,28 +61,27 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
   <br>
   <br>
   * 全量以及去重
-  <br>
-   * 目标网址是天涯的莲蓬鬼话全部帖子的章节，首先可以先做一次全量，虽然可能不全，但是无妨
-  <br>
-  先把全部帖子的全部url抓下来，xpath找到首页全部url，找到下一页，如此直到没有下一页为止，url的入口链接已经基本拿到
-  <br>
-  <br>
-  每个url一个主题帖，里面有很多个页，每一页有多个章节，多页的url可以通过抓取最后一页的url再去拼接出全部url
-  <br>
-  拿到全部url之后，再写个spider去处理这些url的帖子item，这个时候可以考虑多进程，所以这里需要去重，多个进程去取url跑
-  <br>
-  难免会有重复的，跑之前取到的url先random.shuffle一下，这里去重方案我是将全部url取出放置Redis，
-  <br>
-  每当爬取或者因为需要丢弃这个url，这个url再Redis中对于的value改为1，没有爬取的value为0，每次只从value为0的中取key作为url
-  <br>
-  <br>
-  其实这里有很大缺陷，就是效率问题，如果有更好方案希望私我，scrapy-redis暂时不考虑
+   <br>
+      *     目标网址是天涯的莲蓬鬼话全部帖子的章节，首先可以先做一次全量，虽然可能不全，但是无妨
+   <br>
+      先把全部帖子的全部url抓下来，xpath找到首页全部url，找到下一页，如此直到没有下一页为止，url的入口链接已经基本拿到
+   <br>
+   <br>
+      每个url一个主题帖，里面有很多个页，每一页有多个章节，多页的url可以通过抓取最后一页的url再去拼接出全部url
+   <br>
+      拿到全部url之后，再写个spider去处理这些url的帖子item，这个时候可以考虑多进程，所以这里需要去重，多个进程去取url跑
+   <br>
+      难免会有重复的，跑之前取到的url先random.shuffle一下，这里去重方案我是将全部url取出放置Redis，
+   <br>
+      每当爬取或者因为需要丢弃这个url，这个url再Redis中对于的value改为1，没有爬取的value为0，每次只从value为0的中取key作为url
+   <br>
+      其实这里有缺陷，就是效率问题，如果有更好方案希望私我，scrapy-redis暂时不考虑
   <br>
   <br>
   * 增量与去重
     <br>
     <br>
-    * 增量 对比回复时间与上次的回复时间，判断是否更新
+    *    增量 对比回复时间与上次的回复时间，判断是否更新
     <br>
     首页的url和story_index表中story_link_main`比较`如果他存在与说明不是全新的帖子
     <br>
@@ -92,5 +92,15 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
     这里也与数据库交互一次
     <br>
     否则是全新的帖子，从最后一页开始全部抓取
-
-    
+    <br>
+    <br>
+## 反爬策略
+   <br>
+     反爬策略有很多，但是无非都是在中间件那里做一些处理cookie, ua useragent,ip池代理，以及settings.py的相关参数设置，都是模拟浏览器行为
+    <br>
+    网上同样有资料可以参考：http://blkstone.github.io/2016/03/02/crawler-anti-anti-cheat/ 等
+    <br>
+    <br>
+    莲蓬鬼话并没有要求验证码或者登陆之类的，我只是加了个useragent代理，本来想加个ip代理，但是没有发现可用的ip，卒。
+    <br>
+    
