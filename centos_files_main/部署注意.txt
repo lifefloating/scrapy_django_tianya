@@ -1,0 +1,19 @@
+参考的教程主要放在centos书签
+django默认用的mysqldb连接mysql不支持py3
+解决 pymysql替代mysqldb 在init文件中配置下
+将开发环境转到centos用virtualenv管理，项目放在虚拟环境
+supervisor 的话，配置开机自启看书签
+连接宿主机数据库注意两边防火墙还有一些mysql的权限设置，书签有
+bash sh 目录写错！
+开机自启 systemctl enable xxx.service
+每天10.30 crontab执行 supervisorctl start run_env 这个指令会调用写的sh文件
+sh文件里调用的是之前写的py文件
+ * * * * * echo "TestOOOK" >> /tmp/test.txt 测试 crontab是否有效 一分钟写入一个TestOOK
+查看crontab运行日志tail -f /var/log/cron
+nginx.conf 修改后记得reload
+
+autoindex 参数 on off注意 on状态下可以加载样式 off不清楚什么原因
+在django项目目录下
+uwsgi --ini uwsgi.ini & /etc/nginx/nginx.conf
+nginx 配置 /etc/nginx/nginx.conf
+uwsgi的配置在django项目里 uwsgi.ini
