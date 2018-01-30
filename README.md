@@ -22,28 +22,28 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
    网上有很多关于这种教程推荐看下：http://blog.csdn.net/clayanddev/article/details/53768975
 <br>
 <br>
-
+<br>
 * 环境配置
-  <br>
-  google!
-  <br>
+ <br>
+ google!
+ <br>
   django和scrapy改怎么搞怎么搞不介绍过多，重点是下面的一段，不然很可能按照上面教程走下来无法完成环境搭建
-  <br>
-  <br>
+ <br>
+ <br>
   在spider文件夹同级目录下的__init__.py文件里加上下面代码：
-  <br>
+ <br>
   import os, sys, django
-  <br>
+ <br>
   sys.path.append(r'E:\PythonProject\scrapy_django_tianya2\tianya')  # `填你的django项目路径`
-  <br>
+ <br>
   os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tianya.settings")  # django项目.settings
-  <br>
-  django.setup()
-  <br>
-  <br>
+ <br>
+ django.setup()
+ <br>
+ <br>
   这样大体环境搭建完成!
-  <br>
-  <br>
+ <br>
+ <br>
   
 ### 数据库设计
 <br>
@@ -96,8 +96,8 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
       这里也与数据库交互一次
     <br>
       否则是全新的帖子，从最后一页开始全部抓取
-    <br>
-    <br>
+   <br>
+   <br>
     
 ### 反爬策略
    <br>
@@ -105,7 +105,6 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
     <br>
     网上同样有资料可以参考：http://blkstone.github.io/2016/03/02/crawler-anti-anti-cheat/ 等
     <br>
-    <br>
     莲蓬鬼话并没有要求验证码或者登陆之类的，我只是加了个useragent代理，本来想加个ip代理，但是没有发现可用的ip，卒。
     <br>
     
