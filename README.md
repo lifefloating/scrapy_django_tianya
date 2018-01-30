@@ -8,20 +8,17 @@ bi传送门[scrapy官方文档1.4.0](https://docs.scrapy.org/en/latest/)
 ## django文档
 bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
 ## 主要过程
-   <br>
     * scrapy+django环境搭建
     * 数据库结构设计
     * scrapy代码实现
     * 反爬策略
     * scrapy去重以及增量抓取的实现
     * 数据用于django页面的展示
-    * 部署至centos 周期性抓取 (虚拟机暂时熟悉下部署流程)
-    <br>
-    
+    * 部署至centos 周期性抓取 (虚拟机暂时熟悉下部署流程)     
 ### scrapy+django环境搭建
 >这里用Django的modes层来作为scrapy的item定义
 <br>
-  网上有很多关于这种教程推荐看下：http://blog.csdn.net/clayanddev/article/details/53768975
+   网上有很多关于这种教程推荐看下：http://blog.csdn.net/clayanddev/article/details/53768975
 <br>
 <br>
 * 环境配置
@@ -68,7 +65,7 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
   <br>
   * 全量以及去重
    <br>
-      *     目标网址是天涯的莲蓬鬼话全部帖子的章节，首先可以先做一次全量，虽然可能不全，但是无妨
+      *  目标网址是天涯的莲蓬鬼话全部帖子的章节，首先可以先做一次全量，虽然可能不全，但是无妨
    <br>
       先把全部帖子的全部url抓下来，xpath找到首页全部url，找到下一页，如此直到没有下一页为止，url的入口链接已经基本拿到
    <br>
@@ -83,28 +80,27 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
    <br>
       其实这里有缺陷，就是效率问题，如果有更好方案希望私我，scrapy-redis暂时不考虑
    <br>
-  <br>
-  
-  * 增量与去重
+   <br>
+   * 增量与去重
     <br>
     <br>
-    *    增量 对比回复时间与上次的回复时间，判断是否更新
+      *  增量 对比回复时间与上次的回复时间，判断是否更新
     <br>
-    首页的url和story_index表中story_link_main`比较`如果他存在与说明不是全新的帖子
+      首页的url和story_index表中story_link_main`比较`如果他存在与说明不是全新的帖子
     <br>
-    这里与数据库交互一次
+      这里与数据库交互一次
     <br>
-    index只`更新`时间，帖子从后面开始抓取5页比较，这里是为了减少爬取量，不排除可能有漏掉的情况
+      index只`更新`时间，帖子从后面开始抓取5页比较，这里是为了减少爬取量，不排除可能有漏掉的情况
     <br>
-    这里也与数据库交互一次
+      这里也与数据库交互一次
     <br>
-    否则是全新的帖子，从最后一页开始全部抓取
+      否则是全新的帖子，从最后一页开始全部抓取
     <br>
     <br>
     
 ### 反爬策略
    <br>
-     反爬策略有很多，但是无非都是在中间件那里做一些处理cookie, ua useragent,ip池代理，以及settings.py的相关参数设置，都是模拟浏览器行为
+      反爬策略有很多，但是无非都是在中间件那里做一些处理cookie, ua useragent,ip池代理，以及settings.py的相关参数设置，都是模拟浏览器行为
     <br>
     网上同样有资料可以参考：http://blkstone.github.io/2016/03/02/crawler-anti-anti-cheat/ 等
     <br>
