@@ -1,12 +1,12 @@
 # scrapy_django_tianya
-scrapy+django增量抓取天涯莲蓬鬼话
+Scrapy+Django增量抓取天涯莲蓬鬼话
 <br>
 目标网址[莲蓬鬼话](http://bbs.tianya.cn/list-16-1.shtml)
 <br>
-## scrapy文档
-bi传送门[scrapy官方文档1.4.0](https://docs.scrapy.org/en/latest/)
-## django文档
-bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
+## Scrapy文档
+bi~传送门[scrapy官方文档1.4.0](https://docs.scrapy.org/en/latest/)
+## Django文档
+bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
 ## 主要过程
     * scrapy+django环境搭建
     * 数据库结构设计
@@ -15,7 +15,8 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
     * scrapy去重以及增量抓取的实现
     * 数据用于django页面的展示
     * 部署至centos 周期性抓取 (虚拟机暂时熟悉下部署流程)     
-### scrapy+django环境搭建
+    
+### Scrapy+Django环境搭建
 >这里用Django的modes层来作为scrapy的item定义
 <br>
    网上有很多关于这种教程推荐看下：http://blog.csdn.net/clayanddev/article/details/53768975
@@ -45,7 +46,7 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
   
 ### 数据库设计
 <br>
-   代码在django的models.py那里
+   代码在Django的Models.py那里
 <br>
    需要注意的是story表的话story_link 唯一索引 story_mark,story_order联合索引
 <br>
@@ -82,7 +83,6 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
    <br>
    <br>
    * 增量与去重
-    <br>
     <br>
       *  增量 对比回复时间与上次的回复时间，判断是否更新
     <br>
