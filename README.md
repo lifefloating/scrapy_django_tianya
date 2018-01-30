@@ -76,8 +76,8 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
       每当爬取或者因为需要丢弃这个url，这个url再Redis中对于的value改为1，没有爬取的value为0，每次只从value为0的中取key作为url
    <br>
       其实这里有缺陷，就是效率问题，如果有更好方案希望私我，scrapy-redis暂时不考虑
-  <br>
-  <br>
+   <br>
+   <br>
   * 增量与去重
     <br>
     <br>
