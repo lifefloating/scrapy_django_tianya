@@ -69,7 +69,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     #  'tianya_spider.pipelines.DuplicatesStoryPipline': 1,
-    # 'tianya_spider.pipelines.StatusPipeline': 1,
+    'tianya_spider.pipelines.StatusPipeline': 1,
     'tianya_spider.pipelines.LinksItemPipeline': 3,
     'tianya_spider.pipelines.StoryItemPipeline': 2,
 }
