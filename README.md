@@ -8,6 +8,7 @@ bi传送门[scrapy官方文档1.4.0](https://docs.scrapy.org/en/latest/)
 ## django文档
 bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
 ## 主要过程
+   <br>
     * scrapy+django环境搭建
     * 数据库结构设计
     * scrapy代码实现
@@ -83,6 +84,7 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
       其实这里有缺陷，就是效率问题，如果有更好方案希望私我，scrapy-redis暂时不考虑
    <br>
   <br>
+  
   * 增量与去重
     <br>
     <br>
