@@ -15,6 +15,8 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
     * scrapy去重以及增量抓取的实现
     * 数据用于django页面的展示
     * 部署至centos 周期性抓取 (虚拟机暂时熟悉下部署流程)
+    <br>
+    
 ### scrapy+django环境搭建
 >这里用Django的modes层来作为scrapy的item定义
 <br>
@@ -41,6 +43,8 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
   <br>
   这样大体环境搭建完成!
   <br>
+  <br>
+  
 ### 数据库设计
 <br>
    代码在django的models.py那里
@@ -50,6 +54,7 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
    这里的联合索引是后面数据查询的必要条件，因为数据量略大story表100多w数据，查询条件还是加个索引
 <br>
 <br>
+
 ### scrapy代码实现
   <br>
   终于到了重头戏了，想想还是有点激动？
@@ -77,7 +82,7 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
    <br>
       其实这里有缺陷，就是效率问题，如果有更好方案希望私我，scrapy-redis暂时不考虑
    <br>
-   <br>
+  <br>
   * 增量与去重
     <br>
     <br>
@@ -94,6 +99,7 @@ bi传送门[django文档](https://docs.djangoproject.com/en/2.0/)
     否则是全新的帖子，从最后一页开始全部抓取
     <br>
     <br>
+    
 ### 反爬策略
    <br>
      反爬策略有很多，但是无非都是在中间件那里做一些处理cookie, ua useragent,ip池代理，以及settings.py的相关参数设置，都是模拟浏览器行为
