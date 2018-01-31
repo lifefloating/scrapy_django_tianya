@@ -170,3 +170,6 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
  <br>
  
  ![](https://github.com/DANTE0206/scrapy_django_tianya/blob/master/imgs/detail_pages.jpg)
+ 
+ 
+ # 有瑕疵，修改中，已经有新方案
