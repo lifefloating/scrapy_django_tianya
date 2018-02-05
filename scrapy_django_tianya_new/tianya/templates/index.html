@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+<h1>帖子信息：</h1>
+<div class="table-responsible">
+    <table class="table table-bordered" style="text-align: center;">
+        <caption></caption>
+        <thead>
+        <tr>
+            <th class="text-center">帖子标题</th>
+            <!--<th>帖子链接</th>-->
+            <th class="text-center">帖子作者</th>
+            <th class="text-center">帖子回复时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for line in datalist %}
+            <tr>
+                <td>
+                    <a class="button-detail" href="/detail/?link={{ line.story_link_main }}">{{ line.story_title }}</a>
+                </td>
+                <td>{{ line.story_author }}</td>
+                <td>{{ line.story_replytime }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% if is_paginated %}
+    <nav style="text-align: center">
+        <ul class="pagination">
+            <!--<div class="pagination">-->
+            <li>
+                <a href="?page=1">首页</a>
+            </li>
+            {% if first %}
+                <li>
+                    <a href="?page=1">1</a>
+                </li>
+            {% endif %}
+            {% if left %}
+                {% if left_has_more %}
+                    <li>
+                        <span>...</span>
+                    </li>
+                {% endif %}
+                {% for i in left %}
+                    <li>
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+            <li>
+                <a href="?page={{ page_obj.number }}" style="color: red">{{ page_obj.number }}</a>
+            </li>
+            {% if right %}
+                {% for i in right %}
+                    <li>
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+                {% if right_has_more %}
+                    <li>
+                        <span>...</span>
+                    </li>
+                {% endif %}
+            {% endif %}
+            {% if last %}
+                <li>
+                    <a href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a>
+                </li>
+                {% if page_obj.has_next %}
+                    <li>
+                        <a href="?page={{ page_obj.next_page_number }}" rel="nofollow">下一页</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+            <!--</div>-->
+        </ul>
+    </nav>
+{% endif %}
+</body>
+</html>
