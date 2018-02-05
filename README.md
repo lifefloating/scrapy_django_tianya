@@ -172,7 +172,7 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
  ![](https://github.com/DANTE0206/scrapy_django_tianya/blob/master/imgs/detail_pages.jpg)
  
  
- ## 之前方案已经删除，新版本scrapy_django_tianya_new
+ ### 之前方案已经删除，新版本scrapy_django_tianya_new
  <br>
  
 * 修改思路
