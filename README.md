@@ -172,4 +172,14 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
  ![](https://github.com/DANTE0206/scrapy_django_tianya/blob/master/imgs/detail_pages.jpg)
  
  
- # 有瑕疵，修改中，已经有新方案
+ ## 之前方案已经删除，新版本scrapy_django_tianya_new
+ <br>
+ 
+   * 修改思路
+     <br>
+      之前的方案是按照比对时间，给每段故事的章节拼接一个唯一的标记url，虽然顺序可以保证一致，但是不排除其他特殊情况顺序会错，
+     <br>
+      现在发现原帖中已经有这样的标记，replyid，加上时间既可以标记唯一顺序，对每段内容做md5，在一定时间范围内的故事更新比对其md5
+     <br>
+      正常比对时间就行，以上比对的方案是用于有些内容作者在上次帖中更新。
+ 
