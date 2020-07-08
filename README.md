@@ -70,12 +70,7 @@ bi~传送门[django文档](https://docs.djangoproject.com/en/2.0/)
 ![](https://github.com/DANTE0206/scrapy_django_tianya/blob/master/imgs/tianya_index.jpg)
 
 ### scrapy代码实现 去重与增量
-  <br>
-  终于到了重头戏了，想想还是有点激动？
-  <br>
-  
-![oooojbk](https://wanzao2.b0.upaiyun.com/system/pictures/213/original/%E9%9B%86%E4%B8%AD%E7%B2%BE%E7%A5%9E9.png)
-  
+
   我讲下思路和流程吧，因为代码注释很全了已经。
   <br>
   <br>
