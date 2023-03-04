@@ -1,5 +1,5 @@
 # scrapy_django_tianya
-Scrapy+Django增量抓取天涯莲蓬鬼话
+天涯 tianya - Scrapy+Django 增量抓取天涯莲蓬鬼话
 <br>
 目标网址[莲蓬鬼话](http://bbs.tianya.cn/list-16-1.shtml)
 <br>
