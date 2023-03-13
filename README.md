@@ -3,6 +3,8 @@
 <br>
 目标网址[莲蓬鬼话](http://bbs.tianya.cn/list-16-1.shtml)
 <br>
+[![OSCS Status](https://www.oscs1024.com/oscs_api/v2/badge/lifefloating/scrapy_django_tianya.svg?size=small)](https://www.oscs1024.com/repo/lifefloating/scrapy_django_tianya?ref=badge_small)
+
 ## Scrapy文档
 bi~传送门[scrapy官方文档1.4.0](https://docs.scrapy.org/en/latest/)
 ## Django文档
