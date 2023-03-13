@@ -35,7 +35,7 @@ pylint==2.7.0
 PyMySQL==0.7.11
 pyOpenSSL==17.5.0
 pytz==2017.3
-pywin32==221
+pywin32==301
 pywin32-ctypes==0.1.2
 queuelib==1.4.2
 redis==2.10.6
