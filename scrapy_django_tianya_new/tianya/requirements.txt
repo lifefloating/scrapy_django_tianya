@@ -9,7 +9,7 @@ constantly==15.1.0
 cryptography==39.0.1
 cssselect==1.0.1
 decorator==4.1.2
-Django==4.0.6
+Django==4.0.10
 hyperlink==17.3.1
 idna==2.6
 incremental==17.5.0
