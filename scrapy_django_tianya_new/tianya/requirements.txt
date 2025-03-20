@@ -11,7 +11,7 @@ cssselect==1.0.1
 decorator==4.1.2
 Django==4.0.6
 hyperlink==17.3.1
-idna==2.6
+idna==3.7
 incremental==17.5.0
 ipython==6.2.1
 ipython-genutils==0.2.0
