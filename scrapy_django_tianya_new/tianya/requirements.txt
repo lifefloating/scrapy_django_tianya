@@ -46,7 +46,7 @@ scrapyd-client==1.1.0
 service-identity==17.0.0
 simplegeneric==0.8.1
 six==1.11.0
-SQLAlchemy==1.1.15
+SQLAlchemy==1.2.19
 traitlets==4.3.2
 Twisted==22.2.0
 vboxapi==1.0
