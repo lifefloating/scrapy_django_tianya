@@ -32,7 +32,7 @@ pycparser==2.18
 PyDispatcher==2.0.5
 Pygments==2.2.0
 pylint==2.7.0
-PyMySQL==0.7.11
+PyMySQL==1.1.1
 pyOpenSSL==17.5.0
 pytz==2017.3
 pywin32==301
